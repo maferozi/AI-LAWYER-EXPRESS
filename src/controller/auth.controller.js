@@ -25,8 +25,8 @@ const register = async (req, res, next) => {
       });
       if (userExists) {
         return res.status(409).json({
-          status: 'error',
-          message: req.__('email_already_registered'),
+          status: '409',
+          message: 'email_already_registered',
         });
       }
   

@@ -10,6 +10,7 @@ const router = require('../routes');
 
 app.use(cors());
 app.use(express.json()); 
+app.use("/api",router);
 app.use((error, req, res, next) => {
     if (!error) {
       return next();
@@ -23,7 +24,6 @@ app.use((error, req, res, next) => {
     }
   });
   
-app.use("/api",router)
 
 
 module.exports = ()=>{
