@@ -75,7 +75,6 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtY
 
 {
     "text": "crow flew",
-    "topK": 3,
     "chatId": 1
 }
 ###
@@ -93,3 +92,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtY
 GET http://localhost:3000/api/embedding/getAllChats
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyOTYwMjkzMywiZXhwIjoxNzI5NjA2NTMzfQ.yS9x1xEjazfFZmXEcwHE3CIDmSUlCWRsNBX3USVPtX4
+###
+
+
+POST http://localhost:3000/api/embedding/testSearch HTTP/1.1
+content-type: application/json
+
+{
+    "text": "did crow drink water"
+}
+###

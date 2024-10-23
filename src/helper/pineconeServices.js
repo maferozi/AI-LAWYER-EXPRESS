@@ -1,8 +1,15 @@
-
 require("dotenv").config();
 const { v4: uuidv4 } = require("uuid");
 const { createPineconeConnection } = require("../config/pinecone.config");
-const { generateTextFromEmbedding } = require("./embeddingOpenai");
+let { loadQAStuffChain } = require("langchain/chains");
+let { Document } = require("langchain/document");
+const LangchainOpenAI = require("@langchain/openai").OpenAI;
+
+const llm = new LangchainOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+});
+
+const chain = loadQAStuffChain(llm);
 
 const pineconeClient = createPineconeConnection();
 
@@ -29,7 +36,7 @@ async function upsertVector(embedding,text) {
   }
 }
 
-async function queryVector(embedding, topK = 5) {
+async function queryVector(embedding, query, topK = 5) {
   try {
     const index = pineconeClient.Index(PINECONE_INDEX_NAME);
 
@@ -38,8 +45,21 @@ async function queryVector(embedding, topK = 5) {
       vector: embedding,
       includeMetadata: true,
     });
-    const textsArray = queryResponse.matches.map(match => match.metadata.text);
-    return textsArray;
+    // const textsArray = queryResponse.matches.map(match => match.metadata.text);
+    // return textsArray;
+    
+    const concatenatedText = queryResponse.matches
+        .map((match) => match.metadata.text)
+        .join(" ");
+    
+      
+
+        const result = await chain.call({
+          input_documents: [new Document({ pageContent: concatenatedText })],
+          question: query,
+      });
+      return result.text;
+    
   } catch (error) {
     console.error("Error querying vector:", error.message);
     throw new Error("Error querying vector");

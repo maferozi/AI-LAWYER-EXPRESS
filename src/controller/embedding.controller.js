@@ -33,11 +33,11 @@ const createEmbedding = async (req, res) => {
 
 const searchEmbedding = async (req, res, next) => {
   try {
-    const { text, topK, chatId } = req.body;
+    const { text, chatId } = req.body;
     let cha = chatId;
     const user = req.user;
     const embedding = await generateEmbedding(text);
-    const results = await queryVector(embedding, topK);
+    const results = await queryVector(embedding, text);
 
     if (cha == -99) {
       try {
@@ -58,7 +58,7 @@ const searchEmbedding = async (req, res, next) => {
 
       await Message.create({
         chatId: cha.chatId || cha,
-        messageText: results[0],
+        messageText: results,
         messageType: "response",
       });
     } catch (error) {
@@ -76,6 +76,25 @@ const searchEmbedding = async (req, res, next) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+const testSearchEmbedding = async (req, res, next) => {
+  try {
+    const { text } = req.body;
+    const embedding = await generateEmbedding(text);
+    const results = await queryVector(embedding, text);
+
+    const respon = {
+      text: results,
+      type: "response",
+    };
+    res.status(200).json(respon);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
+
+
 
 const getChatMessage = async (req, res, next) => {
   try {
@@ -123,4 +142,4 @@ try {
 
 };
 
-module.exports = { searchEmbedding, createEmbedding, getChatMessage, getAllChats };
+module.exports = { searchEmbedding, createEmbedding, getChatMessage, getAllChats, testSearchEmbedding };
