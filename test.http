@@ -1,14 +1,15 @@
 GET http://localhost:3000/api/auth/me
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyNzYzNTYwMCwiZXhwIjoxNzI3NjM5MjAwfQ.lCQ93Sh28dSFTikX-z7JhtF6b5Jc80wTvgmx0PwvXM8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyODA1NTUxMiwiZXhwIjoxNzI4MDU5MTEyfQ.8IYx59dJ0S4msr-qrOAWaB-kYKkadbaA7jSwuLdBPYI
 ###
 
 POST http://localhost:3000/api/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "email": "aaaaa",
-    "password": "123"
+    "username": "Jon1 Don",
+    "email": "jon1@gmail.com",
+    "password": "Jon*1234"
 }
 
 ###
@@ -16,14 +17,17 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "jo3n@gmail.com",
-    "password": "Jon*123334"
+    "email": "jon@gmail.com",
+    "password": "Jon*1234"
 }
 
 
 
 ###
 GET http://localhost:3000/api/auth/test
+
+###
+GET http://localhost:3000/api/migration/start
 
 
 ### 
@@ -32,3 +36,60 @@ GET http://localhost:3000/api/getList?pageNo=1&limit=3&sortBy=desc&search=a
 
 ### 
 GET http://localhost:3000/api/getListSequalize?page=1&limit=5&sortOrder=DESC
+
+
+###
+POST http://localhost:3000/api/embedding/upsert HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyOTE3NTMzMiwiZXhwIjoxNzI5MTc4OTMyfQ.ixzeUXOe09TI3KoyTzAloRDUqA653_CoXYtU3t0Mu7U
+
+{
+    "data": [
+    { "text": "Once upon a time, there was a crow." },
+   { "text": "The crow was very thirsty." },
+    { "text": "It flew all around looking for water." },
+    { "text": "The crow searched for a long time." },
+    { "text": "Finally, it saw a pot with some water." },
+    { "text": "The water was at the bottom of the pot." },
+    { "text": "The crow tried to drink the water." },
+    { "text": "But its beak couldn't reach the water." },
+    { "text": "The water level was too low for the crow." },
+    { "text": "The crow thought about what to do." },
+    { "text": "It came up with a clever idea." },
+    { "text": "The crow started looking for small stones." },
+    { "text": "It picked up a stone with its beak." },
+    { "text": "The crow dropped the stone into the pot." },
+    { "text": "The water level rose slightly." },
+    { "text": "The crow kept dropping more stones." },
+    { "text": "With each stone, the water level rose higher." },
+    { "text": "Eventually, the water reached the top." },
+    { "text": "The crow could now drink the water." },
+    { "text": "The crow drank the water and flew away happily." }
+  ]
+}
+###
+
+POST http://localhost:3000/api/embedding/search HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyOTUyNzYzOCwiZXhwIjoxNzI5NTMxMjM4fQ.f6U-AaPA9crRks4jAxnaHZxsQKUaOkVSDKxQF2TvG3k
+
+{
+    "text": "crow flew",
+    "topK": 3,
+    "chatId": 1
+}
+###
+
+POST http://localhost:3000/api/embedding/getMessage HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyOTYwNjU1NCwiZXhwIjoxNzI5NjEwMTU0fQ.y6Vx82YpDURTMJmF3466i-2j872k-iq11U6oN7Otxk4
+
+{
+    "chatId": 1
+}
+
+
+###
+GET http://localhost:3000/api/embedding/getAllChats
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoiam9uQGdtYWlsLmNvbSIsImlhdCI6MTcyOTYwMjkzMywiZXhwIjoxNzI5NjA2NTMzfQ.yS9x1xEjazfFZmXEcwHE3CIDmSUlCWRsNBX3USVPtX4

@@ -1,6 +1,7 @@
 
 const {sequelize}= require('../config/db.config');
 const { DataTypes } = require('sequelize');
+const Chat = require('./Chat');
 
 const User = () => {
     const User = sequelize.define(
@@ -15,7 +16,7 @@ const User = () => {
         username: {
           type: DataTypes.STRING,
           allowNull: false,
-          unique: true,
+
         },
         email: {
           type: DataTypes.STRING,
@@ -47,7 +48,7 @@ const User = () => {
       },
     );
    
-  
+   
     return User;
   };
   
