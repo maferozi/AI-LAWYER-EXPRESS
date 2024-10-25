@@ -1,8 +1,20 @@
+require('dotenv').config();
 const { generateEmbedding } = require("../helper/embeddingOpenai");
 const { upsertVector, queryVector } = require("../helper/pineconeServices");
 const Chat = require("../models/Chat");
 const { v4: uuidv4 } = require("uuid");
 const Message = require("../models/Message");
+const fs = require('fs');
+const pdf = require('pdf-parse');
+const { chunkText, batchEmbeddings } = require("../helper/chunkText");
+const { createPineconeConnection } = require("../config/pinecone.config");
+const path = require('path');
+
+
+const pineconeClient = createPineconeConnection();
+const PINECONE_INDEX_NAME = process.env.PINECONE_INDEX_NAME;
+const PINECONE_NAMESPACE_NAME = process.env.PINECONE_NAMESPACE_NAME;
+
 
 const createEmbedding = async (req, res) => {
   try {
@@ -142,4 +154,59 @@ try {
 
 };
 
-module.exports = { searchEmbedding, createEmbedding, getChatMessage, getAllChats, testSearchEmbedding };
+
+const uploadPdf = async (req, res) => {
+  try {
+    const { pdfName,chunkSize } = req.body;
+    const filePath = path.join(__dirname, './../../', pdfName);
+    const pdfBuffer = fs.readFileSync(filePath);
+    const data = await pdf(pdfBuffer);
+    const text = data.text;
+    
+    const chunks = chunkText(text, chunkSize);
+
+    const chunkEmbeddings = await Promise.all(
+      chunks.map(async (chunk, index) => {
+        const vector = await generateEmbedding(chunk);
+        return {
+          id: `penal-pdf-chunk-${index}`,
+          values: vector,
+          metadata: { chunkIndex: index, text: chunk },
+        };
+      })  
+    );
+
+    console.log(chunkEmbeddings.length);
+    const batches =  batchEmbeddings(chunkEmbeddings, 100)
+    const index = pineconeClient.Index(PINECONE_INDEX_NAME);
+
+    for (let i = 0; i < batches.length; i++) {
+      const batch = batches[i];
+      try {
+  
+        await index.namespace(PINECONE_NAMESPACE_NAME).upsert(
+          batch
+        );
+        console.log(`Batch ${i + 1}/${batches.length} upserted successfully.`);
+      } catch (error) {
+        console.error(`Error upserting batch ${i + 1}:`, error);
+      }
+    }
+
+    try {
+      
+  
+      console.log("Vector upserted successfully:");
+    } catch (error) {
+      console.error("Error upserting vector:", error);
+      throw new Error("Error upserting vector");
+    }
+
+    res.status(200)
+      .json({ message: "File Embedded and stored successfully." });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = { searchEmbedding, createEmbedding, getChatMessage, getAllChats, testSearchEmbedding, uploadPdf };

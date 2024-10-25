@@ -8,6 +8,7 @@ const router = require('../routes');
 const Chat = require('../models/Chat');
 const User = require('../models/User');
 const Message = require('../models/Message');
+const { initializeIndex } = require('../helper/pineconeServices');
 const us = User();
 
 
@@ -54,9 +55,6 @@ app.use((error, req, res, next) => {
     onUpdate: 'CASCADE', 
   });
   
-
-
-
 
 const appConfig = async ()=>{
   try {

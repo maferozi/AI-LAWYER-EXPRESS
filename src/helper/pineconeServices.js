@@ -14,6 +14,7 @@ const chain = loadQAStuffChain(llm);
 const pineconeClient = createPineconeConnection();
 
 const PINECONE_INDEX_NAME = process.env.PINECONE_INDEX_NAME;
+const PINECONE_NAMESPACE_NAME = process.env.PINECONE_NAMESPACE_NAME;
 
 async function upsertVector(embedding,text) {
   try {
@@ -36,17 +37,15 @@ async function upsertVector(embedding,text) {
   }
 }
 
-async function queryVector(embedding, query, topK = 5) {
+async function queryVector(embedding, query, topK = 10) {
   try {
     const index = pineconeClient.Index(PINECONE_INDEX_NAME);
 
-    const queryResponse = await index.namespace('thirstyCrow').query({
+    const queryResponse = await index.namespace(PINECONE_NAMESPACE_NAME).query({
       topK: topK,
       vector: embedding,
       includeMetadata: true,
     });
-    // const textsArray = queryResponse.matches.map(match => match.metadata.text);
-    // return textsArray;
     
     const concatenatedText = queryResponse.matches
         .map((match) => match.metadata.text)
@@ -69,7 +68,7 @@ async function queryVector(embedding, query, topK = 5) {
 async function initializeIndex() {
   try {
     const existingIndexes = await pineconeClient.listIndexes();
-    // !existingIndexes.indexes.name === PINECONE_INDEX_NAME
+
     if (1) {
       await pineconeClient.createIndex({
         name: PINECONE_INDEX_NAME,
@@ -92,10 +91,9 @@ async function initializeIndex() {
   }
 }
 
-
-
 module.exports = {
   upsertVector,
   queryVector,
   initializeIndex,
 };
+
