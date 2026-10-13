@@ -1,0 +1,1970 @@
+{
+  "setup": {
+    "ppc_pdf": "pakistanPenalCode.pdf",
+    "handbook_pdf": null,
+    "num_questions": 40,
+    "chunk_sizes": [
+      40,
+      100,
+      200,
+      300,
+      400,
+      800
+    ],
+    "models": {
+      "minilm": {
+        "name": "sentence-transformers/all-MiniLM-L6-v2",
+        "query_prefix": "",
+        "max_seq_length": 256
+      },
+      "bge-small": {
+        "name": "BAAI/bge-small-en-v1.5",
+        "query_prefix": "Represent this sentence for searching relevant passages: ",
+        "max_seq_length": 512
+      }
+    },
+    "rrf_k": 60,
+    "parsed_ppc_sections": 587,
+    "python": "3.12.11",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "device": "cpu"
+  },
+  "chunking": {
+    "40": {
+      "num_chunks": 1496,
+      "num_ppc_chunks": 1496,
+      "mean_words_per_chunk": 46.6,
+      "mean_sections_per_ppc_chunk": 1.27,
+      "pct_chunks_truncated_minilm": 0.0,
+      "pct_chunks_truncated_bge-small": 0.0
+    },
+    "100": {
+      "num_chunks": 658,
+      "num_ppc_chunks": 658,
+      "mean_words_per_chunk": 106.0,
+      "mean_sections_per_ppc_chunk": 1.78,
+      "pct_chunks_truncated_minilm": 0.0,
+      "pct_chunks_truncated_bge-small": 0.0
+    },
+    "200": {
+      "num_chunks": 340,
+      "num_ppc_chunks": 340,
+      "mean_words_per_chunk": 205.2,
+      "mean_sections_per_ppc_chunk": 2.65,
+      "pct_chunks_truncated_minilm": 51.5,
+      "pct_chunks_truncated_bge-small": 0.0
+    },
+    "300": {
+      "num_chunks": 230,
+      "num_ppc_chunks": 230,
+      "mean_words_per_chunk": 303.3,
+      "mean_sections_per_ppc_chunk": 3.46,
+      "pct_chunks_truncated_minilm": 99.6,
+      "pct_chunks_truncated_bge-small": 0.9
+    },
+    "400": {
+      "num_chunks": 173,
+      "num_ppc_chunks": 173,
+      "mean_words_per_chunk": 403.3,
+      "mean_sections_per_ppc_chunk": 4.3,
+      "pct_chunks_truncated_minilm": 100.0,
+      "pct_chunks_truncated_bge-small": 40.5
+    },
+    "800": {
+      "num_chunks": 88,
+      "num_ppc_chunks": 88,
+      "mean_words_per_chunk": 792.8,
+      "mean_sections_per_ppc_chunk": 7.57,
+      "pct_chunks_truncated_minilm": 98.9,
+      "pct_chunks_truncated_bge-small": 98.9
+    }
+  },
+  "metrics": {
+    "bm25": {
+      "40": {
+        "hit@1": 0.125,
+        "hit@5": 0.3,
+        "hit@10": 0.425,
+        "mrr@10": 0.19807539682539682
+      },
+      "100": {
+        "hit@1": 0.1,
+        "hit@5": 0.375,
+        "hit@10": 0.45,
+        "mrr@10": 0.22037698412698412
+      },
+      "200": {
+        "hit@1": 0.2,
+        "hit@5": 0.3,
+        "hit@10": 0.425,
+        "mrr@10": 0.25888888888888884
+      },
+      "300": {
+        "hit@1": 0.2,
+        "hit@5": 0.425,
+        "hit@10": 0.525,
+        "mrr@10": 0.29736111111111113
+      },
+      "400": {
+        "hit@1": 0.2,
+        "hit@5": 0.475,
+        "hit@10": 0.6,
+        "mrr@10": 0.3355059523809524
+      },
+      "800": {
+        "hit@1": 0.225,
+        "hit@5": 0.55,
+        "hit@10": 0.675,
+        "mrr@10": 0.3846825396825397
+      }
+    },
+    "dense:minilm": {
+      "40": {
+        "hit@1": 0.275,
+        "hit@5": 0.55,
+        "hit@10": 0.7,
+        "mrr@10": 0.4074603174603174
+      },
+      "100": {
+        "hit@1": 0.325,
+        "hit@5": 0.65,
+        "hit@10": 0.775,
+        "mrr@10": 0.45544642857142864
+      },
+      "200": {
+        "hit@1": 0.375,
+        "hit@5": 0.7,
+        "hit@10": 0.825,
+        "mrr@10": 0.5063492063492063
+      },
+      "300": {
+        "hit@1": 0.375,
+        "hit@5": 0.6,
+        "hit@10": 0.65,
+        "mrr@10": 0.46877976190476184
+      },
+      "400": {
+        "hit@1": 0.325,
+        "hit@5": 0.6,
+        "hit@10": 0.7,
+        "mrr@10": 0.44944444444444437
+      },
+      "800": {
+        "hit@1": 0.275,
+        "hit@5": 0.5,
+        "hit@10": 0.525,
+        "mrr@10": 0.3669047619047619
+      }
+    },
+    "hybrid:minilm": {
+      "40": {
+        "hit@1": 0.275,
+        "hit@5": 0.5,
+        "hit@10": 0.575,
+        "mrr@10": 0.36923611111111115
+      },
+      "100": {
+        "hit@1": 0.275,
+        "hit@5": 0.55,
+        "hit@10": 0.675,
+        "mrr@10": 0.40515873015873016
+      },
+      "200": {
+        "hit@1": 0.3,
+        "hit@5": 0.525,
+        "hit@10": 0.7,
+        "mrr@10": 0.41058531746031746
+      },
+      "300": {
+        "hit@1": 0.325,
+        "hit@5": 0.475,
+        "hit@10": 0.65,
+        "mrr@10": 0.4025198412698413
+      },
+      "400": {
+        "hit@1": 0.35,
+        "hit@5": 0.6,
+        "hit@10": 0.7,
+        "mrr@10": 0.4436805555555555
+      },
+      "800": {
+        "hit@1": 0.4,
+        "hit@5": 0.525,
+        "hit@10": 0.725,
+        "mrr@10": 0.4735714285714286
+      }
+    },
+    "dense:bge-small": {
+      "40": {
+        "hit@1": 0.225,
+        "hit@5": 0.625,
+        "hit@10": 0.725,
+        "mrr@10": 0.38672619047619045
+      },
+      "100": {
+        "hit@1": 0.25,
+        "hit@5": 0.475,
+        "hit@10": 0.675,
+        "mrr@10": 0.35307539682539685
+      },
+      "200": {
+        "hit@1": 0.3,
+        "hit@5": 0.7,
+        "hit@10": 0.775,
+        "mrr@10": 0.4520039682539682
+      },
+      "300": {
+        "hit@1": 0.35,
+        "hit@5": 0.575,
+        "hit@10": 0.625,
+        "mrr@10": 0.44340277777777787
+      },
+      "400": {
+        "hit@1": 0.325,
+        "hit@5": 0.6,
+        "hit@10": 0.7,
+        "mrr@10": 0.4488492063492064
+      },
+      "800": {
+        "hit@1": 0.4,
+        "hit@5": 0.525,
+        "hit@10": 0.625,
+        "mrr@10": 0.46447420634920633
+      }
+    },
+    "hybrid:bge-small": {
+      "40": {
+        "hit@1": 0.275,
+        "hit@5": 0.45,
+        "hit@10": 0.575,
+        "mrr@10": 0.3549603174603174
+      },
+      "100": {
+        "hit@1": 0.225,
+        "hit@5": 0.55,
+        "hit@10": 0.65,
+        "mrr@10": 0.37030753968253965
+      },
+      "200": {
+        "hit@1": 0.25,
+        "hit@5": 0.525,
+        "hit@10": 0.65,
+        "mrr@10": 0.3856845238095238
+      },
+      "300": {
+        "hit@1": 0.3,
+        "hit@5": 0.475,
+        "hit@10": 0.6,
+        "mrr@10": 0.37759920634920635
+      },
+      "400": {
+        "hit@1": 0.4,
+        "hit@5": 0.55,
+        "hit@10": 0.7,
+        "mrr@10": 0.46884920634920635
+      },
+      "800": {
+        "hit@1": 0.4,
+        "hit@5": 0.55,
+        "hit@10": 0.725,
+        "mrr@10": 0.4914583333333333
+      }
+    }
+  },
+  "per_question": {
+    "bm25": {
+      "40": [
+        null,
+        1,
+        null,
+        4,
+        2,
+        7,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        5,
+        7,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        7,
+        2,
+        3,
+        4,
+        9,
+        null,
+        null,
+        1,
+        10,
+        null,
+        null,
+        4,
+        1,
+        null,
+        1,
+        null
+      ],
+      "100": [
+        null,
+        1,
+        null,
+        9,
+        5,
+        7,
+        3,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        4,
+        null,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        9,
+        2,
+        2,
+        null,
+        2,
+        2,
+        null,
+        null,
+        3,
+        null,
+        null,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null
+      ],
+      "200": [
+        null,
+        1,
+        null,
+        10,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        6,
+        6,
+        1,
+        5,
+        2,
+        null,
+        null,
+        null,
+        9,
+        9,
+        null,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null
+      ],
+      "300": [
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        4,
+        8,
+        null,
+        3,
+        null,
+        null,
+        null,
+        8,
+        3,
+        1,
+        2,
+        4,
+        2,
+        5,
+        null,
+        null,
+        null,
+        9,
+        null,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null
+      ],
+      "400": [
+        null,
+        1,
+        null,
+        2,
+        1,
+        null,
+        1,
+        7,
+        null,
+        8,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        7,
+        null,
+        1,
+        null,
+        null,
+        null,
+        3,
+        3,
+        3,
+        1,
+        2,
+        2,
+        5,
+        null,
+        null,
+        null,
+        2,
+        null,
+        7,
+        2,
+        2,
+        null,
+        1,
+        6
+      ],
+      "800": [
+        null,
+        1,
+        null,
+        2,
+        1,
+        4,
+        2,
+        5,
+        null,
+        7,
+        2,
+        1,
+        1,
+        1,
+        null,
+        2,
+        10,
+        null,
+        1,
+        4,
+        null,
+        null,
+        6,
+        2,
+        2,
+        1,
+        2,
+        2,
+        6,
+        null,
+        null,
+        null,
+        1,
+        null,
+        9,
+        2,
+        2,
+        null,
+        1,
+        null
+      ]
+    },
+    "dense:minilm": {
+      "40": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        4,
+        2,
+        8,
+        1,
+        10,
+        null,
+        2,
+        1,
+        9,
+        null,
+        2,
+        null,
+        3,
+        2,
+        8,
+        1,
+        1,
+        null,
+        1,
+        2,
+        1,
+        3,
+        9,
+        null,
+        null,
+        null,
+        1,
+        3,
+        7,
+        2,
+        3,
+        1,
+        null,
+        1,
+        null
+      ],
+      "100": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        3,
+        2,
+        null,
+        8,
+        2,
+        1,
+        4,
+        null,
+        8,
+        3,
+        1,
+        2,
+        1,
+        4,
+        1,
+        4,
+        3,
+        4,
+        5,
+        1,
+        6,
+        8,
+        null,
+        7,
+        1,
+        3,
+        null,
+        1,
+        2,
+        1,
+        null,
+        1,
+        null
+      ],
+      "200": [
+        2,
+        1,
+        null,
+        null,
+        null,
+        3,
+        1,
+        3,
+        2,
+        6,
+        1,
+        1,
+        1,
+        2,
+        3,
+        5,
+        3,
+        1,
+        1,
+        10,
+        5,
+        1,
+        7,
+        3,
+        1,
+        1,
+        1,
+        4,
+        1,
+        null,
+        null,
+        4,
+        2,
+        6,
+        1,
+        1,
+        9,
+        null,
+        1,
+        null
+      ],
+      "300": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        2,
+        7,
+        1,
+        1,
+        5,
+        1,
+        2,
+        5,
+        1,
+        2,
+        null,
+        null,
+        2,
+        8,
+        1,
+        null,
+        3,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        4,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "400": [
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        3,
+        9,
+        6,
+        null,
+        null,
+        2,
+        2,
+        2,
+        1,
+        6,
+        1,
+        1,
+        5,
+        4,
+        1,
+        3,
+        1,
+        4,
+        6,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "800": [
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        3,
+        null,
+        null,
+        2,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        2,
+        null,
+        7,
+        5,
+        2,
+        4,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        4,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "hybrid:minilm": {
+      "40": [
+        8,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        2,
+        6,
+        null,
+        null,
+        null,
+        null,
+        null,
+        5,
+        2,
+        null,
+        9,
+        2,
+        4,
+        1,
+        1,
+        3,
+        null,
+        null,
+        null,
+        1,
+        1,
+        3,
+        4,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "100": [
+        7,
+        1,
+        null,
+        null,
+        3,
+        2,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        4,
+        7,
+        null,
+        3,
+        9,
+        null,
+        null,
+        7,
+        null,
+        4,
+        2,
+        1,
+        1,
+        1,
+        2,
+        6,
+        null,
+        null,
+        1,
+        2,
+        3,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "200": [
+        7,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        2,
+        10,
+        2,
+        null,
+        1,
+        1,
+        2,
+        10,
+        null,
+        9,
+        null,
+        9,
+        6,
+        8,
+        null,
+        5,
+        2,
+        1,
+        1,
+        1,
+        3,
+        5,
+        null,
+        null,
+        1,
+        1,
+        null,
+        2,
+        1,
+        3,
+        null,
+        1,
+        null
+      ],
+      "300": [
+        null,
+        1,
+        null,
+        null,
+        9,
+        4,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        3,
+        10,
+        1,
+        9,
+        null,
+        1,
+        null,
+        10,
+        7,
+        2,
+        1,
+        1,
+        1,
+        1,
+        3,
+        7,
+        null,
+        null,
+        null,
+        3,
+        7,
+        2,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "400": [
+        null,
+        1,
+        null,
+        null,
+        4,
+        4,
+        1,
+        1,
+        9,
+        1,
+        null,
+        5,
+        1,
+        2,
+        6,
+        5,
+        4,
+        null,
+        1,
+        4,
+        8,
+        9,
+        2,
+        1,
+        1,
+        1,
+        null,
+        2,
+        1,
+        null,
+        null,
+        3,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "800": [
+        7,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        4,
+        null,
+        1,
+        1,
+        2,
+        1,
+        1,
+        6,
+        1,
+        6,
+        null,
+        8,
+        1,
+        1,
+        5,
+        1,
+        1,
+        null,
+        6,
+        1,
+        3,
+        1,
+        null,
+        null,
+        6,
+        1,
+        2,
+        1,
+        1,
+        8,
+        10,
+        null,
+        null
+      ]
+    },
+    "dense:bge-small": {
+      "40": [
+        1,
+        1,
+        null,
+        null,
+        2,
+        7,
+        1,
+        null,
+        2,
+        null,
+        10,
+        1,
+        1,
+        null,
+        null,
+        3,
+        null,
+        5,
+        1,
+        2,
+        4,
+        2,
+        null,
+        4,
+        2,
+        4,
+        1,
+        4,
+        10,
+        7,
+        null,
+        2,
+        4,
+        1,
+        5,
+        2,
+        2,
+        null,
+        1,
+        null
+      ],
+      "100": [
+        null,
+        4,
+        null,
+        null,
+        null,
+        4,
+        1,
+        null,
+        1,
+        null,
+        5,
+        1,
+        1,
+        3,
+        null,
+        null,
+        7,
+        6,
+        7,
+        4,
+        9,
+        2,
+        7,
+        1,
+        1,
+        6,
+        1,
+        5,
+        null,
+        null,
+        null,
+        6,
+        2,
+        null,
+        2,
+        1,
+        1,
+        10,
+        1,
+        null
+      ],
+      "200": [
+        2,
+        1,
+        null,
+        null,
+        null,
+        3,
+        1,
+        null,
+        3,
+        7,
+        1,
+        1,
+        1,
+        2,
+        5,
+        null,
+        7,
+        2,
+        3,
+        3,
+        5,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        9,
+        null,
+        null,
+        4,
+        1,
+        4,
+        4,
+        1,
+        5,
+        null,
+        1,
+        null
+      ],
+      "300": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        4,
+        1,
+        null,
+        null,
+        8,
+        1,
+        1,
+        1,
+        1,
+        4,
+        2,
+        null,
+        3,
+        1,
+        2,
+        2,
+        3,
+        9,
+        2,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        3,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "400": [
+        5,
+        1,
+        null,
+        null,
+        null,
+        3,
+        1,
+        6,
+        3,
+        7,
+        3,
+        1,
+        1,
+        2,
+        1,
+        1,
+        null,
+        1,
+        2,
+        6,
+        9,
+        1,
+        3,
+        1,
+        1,
+        3,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null,
+        2,
+        null,
+        2,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "800": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        6,
+        9,
+        null,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        8,
+        7,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        3,
+        null,
+        null,
+        2,
+        1,
+        5,
+        1,
+        2,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "hybrid:bge-small": {
+      "40": [
+        null,
+        1,
+        null,
+        null,
+        1,
+        4,
+        null,
+        3,
+        null,
+        null,
+        null,
+        1,
+        2,
+        6,
+        null,
+        null,
+        null,
+        null,
+        6,
+        3,
+        7,
+        null,
+        4,
+        2,
+        1,
+        1,
+        1,
+        3,
+        9,
+        null,
+        null,
+        1,
+        1,
+        9,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "100": [
+        null,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        4,
+        null,
+        null,
+        null,
+        1,
+        2,
+        3,
+        9,
+        null,
+        3,
+        null,
+        8,
+        null,
+        7,
+        null,
+        2,
+        1,
+        1,
+        2,
+        1,
+        3,
+        null,
+        null,
+        null,
+        2,
+        3,
+        10,
+        2,
+        1,
+        1,
+        4,
+        1,
+        null
+      ],
+      "200": [
+        8,
+        1,
+        null,
+        null,
+        2,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        2,
+        7,
+        null,
+        10,
+        null,
+        6,
+        4,
+        7,
+        null,
+        3,
+        3,
+        1,
+        1,
+        1,
+        2,
+        3,
+        null,
+        null,
+        2,
+        2,
+        null,
+        2,
+        1,
+        2,
+        null,
+        1,
+        null
+      ],
+      "300": [
+        null,
+        1,
+        null,
+        null,
+        5,
+        6,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        10,
+        5,
+        null,
+        3,
+        1,
+        1,
+        4,
+        1,
+        2,
+        10,
+        null,
+        null,
+        null,
+        9,
+        7,
+        2,
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "400": [
+        null,
+        1,
+        null,
+        null,
+        8,
+        4,
+        1,
+        2,
+        8,
+        1,
+        9,
+        1,
+        1,
+        2,
+        6,
+        5,
+        7,
+        null,
+        1,
+        5,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        10
+      ],
+      "800": [
+        2,
+        1,
+        null,
+        null,
+        null,
+        5,
+        2,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        8,
+        1,
+        null,
+        null,
+        1,
+        1,
+        2,
+        6,
+        6,
+        1,
+        8,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null,
+        8,
+        1,
+        2,
+        1,
+        1,
+        8,
+        null,
+        8,
+        null
+      ]
+    }
+  },
+  "timings": {
+    "extract_and_parse_s": 12.8,
+    "chunk_40_s": 9.9,
+    "chunk_100_s": 9.7,
+    "chunk_200_s": 9.7,
+    "chunk_300_s": 9.1,
+    "chunk_400_s": 7.1,
+    "chunk_800_s": 4.0,
+    "total_s": 70.8
+  },
+  "questions": [
+    {
+      "id": "q01",
+      "question": "What is the punishment for stealing something?",
+      "gold_sections": [
+        "379"
+      ],
+      "gold_headings": {
+        "379": "379. Punishment for theft: Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both."
+      }
+    },
+    {
+      "id": "q02",
+      "question": "Legally, when does taking someone else's belongings count as theft?",
+      "gold_sections": [
+        "378"
+      ],
+      "gold_headings": {
+        "378": "378. Theft: Whoever, intending to take dishonestly any movable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to"
+      }
+    },
+    {
+      "id": "q03",
+      "question": "What sentence can someone get for deliberately killing a person?",
+      "gold_sections": [
+        "302"
+      ],
+      "gold_headings": {
+        "302": "302. Punishment of qatl-i-amd: Whoever commits qatl-e-amd shall, subject to the provisions of this Chapter be: (a) punished with death as qisas;"
+      }
+    },
+    {
+      "id": "q04",
+      "question": "If someone dies because of my mistake and I never meant to hurt them, what offence is that called?",
+      "gold_sections": [
+        "318"
+      ],
+      "gold_headings": {
+        "318": "318. Qatl-i-khata: Whoever, without any intention to cause death of, or cause harm to, a person causes death of such person, either by mistake of act or by mistake of fact, is said to commit qatl-i-"
+      }
+    },
+    {
+      "id": "q05",
+      "question": "I hit and killed a pedestrian while driving carelessly. How much jail time could I face?",
+      "gold_sections": [
+        "320"
+      ],
+      "gold_headings": {
+        "320": "320. Punishment for qatl-i-khata by rash or negligent driving: Whoever commits qatl-ikhata by rash or negligent driving shall, having regard to the facts and circumstances the case, in addition to diyat, be punished with imprisonment of either"
+      }
+    },
+    {
+      "id": "q06",
+      "question": "Can a five-year-old child be charged with a crime?",
+      "gold_sections": [
+        "82"
+      ],
+      "gold_headings": {
+        "82": "82. Act of a child under seven years of age: Nothing is an offence, which is done by a child under seven years of age."
+      }
+    },
+    {
+      "id": "q07",
+      "question": "My ten-year-old nephew did something wrong but was too young to understand it was wrong. Is that still an offence?",
+      "gold_sections": [
+        "83"
+      ],
+      "gold_headings": {
+        "83": "83. Act of a child above seven and under twelve of immature understanding: Nothing is an offence which is done by a child above seven years of age and under twelve, who has not attained sufficient maturity of understanding to judge of the nature and"
+      }
+    },
+    {
+      "id": "q08",
+      "question": "Can someone with a mental illness who did not know what they were doing be held criminally responsible?",
+      "gold_sections": [
+        "84"
+      ],
+      "gold_headings": {
+        "84": "84. Act of a person of unsound mind: Nothing is an offence which is done by a person who, at the time of doing it, by reason of unsoundness of mind, is incapable of knowing the nature of the act, or that he is doing what"
+      }
+    },
+    {
+      "id": "q09",
+      "question": "If someone spiked my drink and I did something illegal while drugged, am I guilty?",
+      "gold_sections": [
+        "85"
+      ],
+      "gold_headings": {
+        "85": "85. Act of a person incapable of Judgment by reason of intoxication caused against his will: Nothing is an offence which is done by a person who, at the time of doing it, is, by reason of intoxication, incapable of knowing the nature of the act, or that he is doing what is either"
+      }
+    },
+    {
+      "id": "q10",
+      "question": "Am I allowed to fight back to protect myself or my family if someone attacks us?",
+      "gold_sections": [
+        "96",
+        "97"
+      ],
+      "gold_headings": {
+        "96": "96. Things done in private defence: Nothing is an offence which is done in the exercise of the right of private defence.",
+        "97": "97. Right of private defence of the body and of property: Every person has a right, subject to the restrictions contained in Section 99, to defend; First:  His own body, and the body of any ot her person, against any offence affecting"
+      }
+    },
+    {
+      "id": "q11",
+      "question": "In which situations is it not a crime to kill an attacker while defending yourself?",
+      "gold_sections": [
+        "100"
+      ],
+      "gold_headings": {
+        "100": "100. When the right of private defence of the body extends to causing death: The right of private defence of the body extends, under the restrictions mentioned in the last preceding section, to the voluntary causing of death or of any other harm to the assailant, if"
+      }
+    },
+    {
+      "id": "q12",
+      "question": "How many years in prison does a robber get, for example if the robbery happens on a highway?",
+      "gold_sections": [
+        "392"
+      ],
+      "gold_headings": {
+        "392": "392. Punishment for robbery: Whoever commits robbery shall be punished with rigorous imprisonment for a term which 155[shall not be less than three years nor more than] 155 ten years, and shall also be liable to"
+      }
+    },
+    {
+      "id": "q13",
+      "question": "How many people need to be involved for a robbery to be treated as dacoity?",
+      "gold_sections": [
+        "391"
+      ],
+      "gold_headings": {
+        "391": "391. Dacoity: When five or more persons conjointly commit or attempt to commit a robbery, or where the whole number of persons conjointly committing or attempting to commit a robbery and"
+      }
+    },
+    {
+      "id": "q14",
+      "question": "What punishment do members of a gang get for committing dacoity?",
+      "gold_sections": [
+        "395"
+      ],
+      "gold_headings": {
+        "395": "395. Punishment for dacoity: Whoever commits dacoity shall be punished with imprisonment for life, or with rigorous imprisonment for a term which shall not be less than four years nor more than ten years and"
+      }
+    },
+    {
+      "id": "q15",
+      "question": "Someone lied to me and tricked me into handing over my money. What is the punishment for that kind of fraud?",
+      "gold_sections": [
+        "420"
+      ],
+      "gold_headings": {
+        "420": "420. Cheating and dishonestly Inducing delivery of property: Whoever cheats and thereby dishonestly induces the person deceived to deliver any property to any person, or to make, alter or destroy the whole or any part of a valuable"
+      }
+    },
+    {
+      "id": "q16",
+      "question": "My employee misused company money that I had trusted him with. Which offence covers an employee doing this?",
+      "gold_sections": [
+        "408"
+      ],
+      "gold_headings": {
+        "408": "408. Criminal breach of trust by clerk or servant: Whoever, being a clerk or servant or employed as a clerk or servant, and being in any manner entrusted in such capacity with property, or with any dominion over property,"
+      }
+    },
+    {
+      "id": "q17",
+      "question": "What is the penalty for making a fake document?",
+      "gold_sections": [
+        "465"
+      ],
+      "gold_headings": {
+        "465": "465. Punishment for forgery: Whoever commits forgery shall be punished with imprisonment of either description for a term, which may extend to two years, or with fine, or with both."
+      }
+    },
+    {
+      "id": "q18",
+      "question": "Is printing fake banknotes a crime, and what is the sentence?",
+      "gold_sections": [
+        "489-A"
+      ],
+      "gold_headings": {
+        "489-A": "489- A. Counterfeiting currency-notes or bank-notes:"
+      }
+    },
+    {
+      "id": "q19",
+      "question": "Someone spread false stories to ruin my reputation. What can they be punished with?",
+      "gold_sections": [
+        "499",
+        "500"
+      ],
+      "gold_headings": {
+        "499": "499. Defamation: Whoever by words either spoken or intended to be read, or by signs or by visible representations, makes or publishes any imputation concerning any person intending to",
+        "500": "500. Punishment for defamation: Whoever defames another shall be punished with simple imprisonment for a term which may extend to two years, or with fine, or with both."
+      }
+    },
+    {
+      "id": "q20",
+      "question": "What is the punishment for threatening to kill someone?",
+      "gold_sections": [
+        "506"
+      ],
+      "gold_headings": {
+        "506": "506. Punishment for criminal intimidation: Whoever commences the offence of criminal intimidation shall be punished with imprisonment of either description for a term which may extend to two years or with fine or"
+      }
+    },
+    {
+      "id": "q21",
+      "question": "I keep getting threatening letters with no name on them. Is there a specific offence for that?",
+      "gold_sections": [
+        "507"
+      ],
+      "gold_headings": {
+        "507": "507. Criminal intimidation by an anonymous communication: Whoever commits the offence of criminal intimidation by an anonymous communication, or having taken precaution to conceal the name or abode of the person from whom the threat"
+      }
+    },
+    {
+      "id": "q22",
+      "question": "A man keeps making vulgar comments and gestures at women in the street. What offence is he committing?",
+      "gold_sections": [
+        "509"
+      ],
+      "gold_headings": {
+        "509": "509. Word, gesture or act intended to insult the modesty of a woman: Whoever, intending to insult the modesty of any woman, utters any word, makes any sound or gesture, or exhibits any object, intending that such word or sound shall be heard, or that"
+      }
+    },
+    {
+      "id": "q23",
+      "question": "What is the jail term for taking a child away from their parents without consent?",
+      "gold_sections": [
+        "361",
+        "363"
+      ],
+      "gold_headings": {
+        "361": "361. Kidnapping from lawful guardianship: Whoever takes or entices any minor under fourteen years of age if a male, or under sixteen years of age if a female, or any person of unsound mind, out of the keeping of the lawful",
+        "363": "363. Punishment for kidnapping: Whoever kidnaps any person from Pakistan or from lawful guardianship, shall be punished with imprisonment of either description for a term which may extend to seven years, and"
+      }
+    },
+    {
+      "id": "q24",
+      "question": "What is the punishment for kidnapping someone and demanding ransom?",
+      "gold_sections": [
+        "365-A"
+      ],
+      "gold_headings": {
+        "365-A": "365- A. Kidnapping or abducting for extorting property, valuable security, etc.:"
+      }
+    },
+    {
+      "id": "q25",
+      "question": "Someone locked me in a room and would not let me leave. What is the punishment for that?",
+      "gold_sections": [
+        "340",
+        "342"
+      ],
+      "gold_headings": {
+        "340": "340. Wrongful confinement: Whoever wrongfully restrains any person in such a manner as 10 prevent that person from proceeding beyond certain circumscribing limits, is said \"wrongfully to confine\" that",
+        "342": "342. Punishment for wrongful confinement: Whoever wrongfully confines any person, shall be punished with imprisonment of either description for, a term, which may extend to one year, or with fine which may extend to"
+      }
+    },
+    {
+      "id": "q26",
+      "question": "What is the punishment for rape in Pakistan?",
+      "gold_sections": [
+        "376"
+      ],
+      "gold_headings": {
+        "376": "376. Punishment for rape (1) Whoever commits rape shall be punished with death or imprisonment of either description for a term which shall not be less than ten rears or more, than twenty-five"
+      }
+    },
+    {
+      "id": "q27",
+      "question": "What happens to someone who burns or disrespects a copy of the Quran?",
+      "gold_sections": [
+        "295-B"
+      ],
+      "gold_headings": {
+        "295-B": "295- B. Defiling, etc., of Holy Qur'an:"
+      }
+    },
+    {
+      "id": "q28",
+      "question": "Is it a crime for a government officer to accept a bribe for doing his job?",
+      "gold_sections": [
+        "161"
+      ],
+      "gold_headings": {
+        "161": "161. Public servant taking gratification other than legal remuneration in respect to an official act: Whoever, being or expecting to be a public servant, accepts or obtains, agrees to accept, or"
+      }
+    },
+    {
+      "id": "q29",
+      "question": "What is the penalty for lying under oath in court?",
+      "gold_sections": [
+        "193"
+      ],
+      "gold_headings": {
+        "193": "193. Punishment for false evidence: Whoever intentionally gives false evidence in any stage of a judicial proceeding, or fabricates false evidence for the purpose of being used in any stage of a judicial proceeding,"
+      }
+    },
+    {
+      "id": "q30",
+      "question": "Is trying to kill yourself a crime in Pakistan?",
+      "gold_sections": [
+        "325"
+      ],
+      "gold_headings": {
+        "325": "325. Attempt to commit suicide: Whoever attempts to commit suicide and does any act towards the commission of such offence, shall be punished with simple imprisonment for a term which may extend to one"
+      }
+    },
+    {
+      "id": "q31",
+      "question": "What is the sentence for trying to murder someone who survives the attack?",
+      "gold_sections": [
+        "324"
+      ],
+      "gold_headings": {
+        "324": "324. Attempt to commit qatl-i-amd: Whoever does any act with such intention or knowledge, and under such circumstances, that, if he by that act caused qatl, he would be guilty of qatl-i-amd, shall be punished with"
+      }
+    },
+    {
+      "id": "q32",
+      "question": "Is driving dangerously on a public road an offence even if nobody gets hurt?",
+      "gold_sections": [
+        "279"
+      ],
+      "gold_headings": {
+        "279": "279. Rash driving or riding on a public way: Whoever drives any vehicle, or rides, on any public way in a manner so rash or negligent as to endanger human life, or to be likely to cause hurt or injury to any other person, shall be"
+      }
+    },
+    {
+      "id": "q33",
+      "question": "What is the punishment for buying goods when you know they were stolen?",
+      "gold_sections": [
+        "411"
+      ],
+      "gold_headings": {
+        "411": "411. Dishonestly receiving stolen property: Whoever dishonestly receives or retains, any stolen property, knowing or having reason to believe the same to be stolen property, shall be punished with imprisonment of either"
+      }
+    },
+    {
+      "id": "q34",
+      "question": "Can a person be punished for hiding a criminal from the police?",
+      "gold_sections": [
+        "212"
+      ],
+      "gold_headings": {
+        "212": "212. Harbouring offender: Whenever an offence has been committed, whoever harbours or conceals a person whom he knows or has reason to believe to be the offender, with the intention of screening him from"
+      }
+    },
+    {
+      "id": "q35",
+      "question": "If I cannot pay a fine imposed by the court, can I be sent to jail instead, and for how long?",
+      "gold_sections": [
+        "64",
+        "65"
+      ],
+      "gold_headings": {
+        "64": "64. Sentence of imprisonment for non-payment of fine: In every case of an offence punishable with imprisonment as well as fine, in which the offender is sentenced to a fine, whether with or without imprisonment, and in every case of",
+        "65": "65. Limit to imprisonment for non-payment of fine when imprisonment and fine awardable: The term for which the Court directs the offender to be imprisoned in default of payment of a"
+      }
+    },
+    {
+      "id": "q36",
+      "question": "Does Pakistani criminal law apply to a Pakistani citizen who commits a crime in another country?",
+      "gold_sections": [
+        "4"
+      ],
+      "gold_headings": {
+        "4": "4. Extension of Code to extra-territorial offences. The provisions of this Code apply also to any offence committed by:- 1[(1) any citizen of Pakistan or any person in the service of Pakistan in any place without and"
+      }
+    },
+    {
+      "id": "q37",
+      "question": "If several people commit a crime together as part of the same plan, is each of them responsible?",
+      "gold_sections": [
+        "34"
+      ],
+      "gold_headings": {
+        "34": "34. Acts done by several persons In furtherance of common intention. When a criminal act is done by several persons, in furtherance of the common intention of all, each such person is liable for that act in the same manner as if it were done by him alone."
+      }
+    },
+    {
+      "id": "q38",
+      "question": "What kinds of punishment can a court give under the penal code?",
+      "gold_sections": [
+        "53"
+      ],
+      "gold_headings": {
+        "53": "53. Punishments: The punishments to which offenders are liable under the provisions of this Code are: Firstly,  Qisas;"
+      }
+    },
+    {
+      "id": "q39",
+      "question": "Is it illegal to marry someone else while your first husband or wife is still alive?",
+      "gold_sections": [
+        "494"
+      ],
+      "gold_headings": {
+        "494": "494. Marrying again during lifetime of husband or wife: Whoever, having a husband or wife living, marries in any case in which, such marriage is void by reason of its taking place during the life of such husband or wife, shall be punished"
+      }
+    },
+    {
+      "id": "q40",
+      "question": "Can the victim's family forgive a murderer so that he is not executed?",
+      "gold_sections": [
+        "309",
+        "310"
+      ],
+      "gold_headings": {
+        "309": "309. Waiver (Afw) of qisas in qatl-i-amd: (1) In the case of qatl-i-amd, an adult sane wali may, at any time and without any compensation, waive his right of qisas:",
+        "310": "310. Compounding of qisas (Sulh) in qatl-i-amd: (1) In the case of qatl-i-amd, an adult sane wali may, at any time on accepting badl-i-sulh, compound his right of qisas:"
+      }
+    }
+  ]
+}

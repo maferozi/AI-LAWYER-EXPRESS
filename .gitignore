@@ -1,2 +1,8 @@
 node_modules
 .env
+
+# retrieval eval
+eval/.venv/
+__pycache__/
+*.pyc
+.cache/

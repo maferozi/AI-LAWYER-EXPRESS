@@ -1,0 +1,40 @@
+{"id": "q01", "type": "punishment", "question": "What is the punishment for stealing something?", "gold_sections": ["379"]}
+{"id": "q02", "type": "definition", "question": "Legally, when does taking someone else's belongings count as theft?", "gold_sections": ["378"]}
+{"id": "q03", "type": "punishment", "question": "What sentence can someone get for deliberately killing a person?", "gold_sections": ["302"]}
+{"id": "q04", "type": "definition", "question": "If someone dies because of my mistake and I never meant to hurt them, what offence is that called?", "gold_sections": ["318"]}
+{"id": "q05", "type": "punishment", "question": "I hit and killed a pedestrian while driving carelessly. How much jail time could I face?", "gold_sections": ["320"]}
+{"id": "q06", "type": "exception", "question": "Can a five-year-old child be charged with a crime?", "gold_sections": ["82"]}
+{"id": "q07", "type": "exception", "question": "My ten-year-old nephew did something wrong but was too young to understand it was wrong. Is that still an offence?", "gold_sections": ["83"]}
+{"id": "q08", "type": "exception", "question": "Can someone with a mental illness who did not know what they were doing be held criminally responsible?", "gold_sections": ["84"]}
+{"id": "q09", "type": "exception", "question": "If someone spiked my drink and I did something illegal while drugged, am I guilty?", "gold_sections": ["85"]}
+{"id": "q10", "type": "exception", "question": "Am I allowed to fight back to protect myself or my family if someone attacks us?", "gold_sections": ["96", "97"]}
+{"id": "q11", "type": "exception", "question": "In which situations is it not a crime to kill an attacker while defending yourself?", "gold_sections": ["100"]}
+{"id": "q12", "type": "punishment", "question": "How many years in prison does a robber get, for example if the robbery happens on a highway?", "gold_sections": ["392"]}
+{"id": "q13", "type": "definition", "question": "How many people need to be involved for a robbery to be treated as dacoity?", "gold_sections": ["391"]}
+{"id": "q14", "type": "punishment", "question": "What punishment do members of a gang get for committing dacoity?", "gold_sections": ["395"]}
+{"id": "q15", "type": "punishment", "question": "Someone lied to me and tricked me into handing over my money. What is the punishment for that kind of fraud?", "gold_sections": ["420"]}
+{"id": "q16", "type": "definition", "question": "My employee misused company money that I had trusted him with. Which offence covers an employee doing this?", "gold_sections": ["408"]}
+{"id": "q17", "type": "punishment", "question": "What is the penalty for making a fake document?", "gold_sections": ["465"]}
+{"id": "q18", "type": "punishment", "question": "Is printing fake banknotes a crime, and what is the sentence?", "gold_sections": ["489-A"]}
+{"id": "q19", "type": "punishment", "question": "Someone spread false stories to ruin my reputation. What can they be punished with?", "gold_sections": ["499", "500"]}
+{"id": "q20", "type": "punishment", "question": "What is the punishment for threatening to kill someone?", "gold_sections": ["506"]}
+{"id": "q21", "type": "definition", "question": "I keep getting threatening letters with no name on them. Is there a specific offence for that?", "gold_sections": ["507"]}
+{"id": "q22", "type": "definition", "question": "A man keeps making vulgar comments and gestures at women in the street. What offence is he committing?", "gold_sections": ["509"]}
+{"id": "q23", "type": "punishment", "question": "What is the jail term for taking a child away from their parents without consent?", "gold_sections": ["361", "363"]}
+{"id": "q24", "type": "punishment", "question": "What is the punishment for kidnapping someone and demanding ransom?", "gold_sections": ["365-A"]}
+{"id": "q25", "type": "punishment", "question": "Someone locked me in a room and would not let me leave. What is the punishment for that?", "gold_sections": ["340", "342"]}
+{"id": "q26", "type": "punishment", "question": "What is the punishment for rape in Pakistan?", "gold_sections": ["376"]}
+{"id": "q27", "type": "punishment", "question": "What happens to someone who burns or disrespects a copy of the Quran?", "gold_sections": ["295-B"]}
+{"id": "q28", "type": "definition", "question": "Is it a crime for a government officer to accept a bribe for doing his job?", "gold_sections": ["161"]}
+{"id": "q29", "type": "punishment", "question": "What is the penalty for lying under oath in court?", "gold_sections": ["193"]}
+{"id": "q30", "type": "punishment", "question": "Is trying to kill yourself a crime in Pakistan?", "gold_sections": ["325"]}
+{"id": "q31", "type": "punishment", "question": "What is the sentence for trying to murder someone who survives the attack?", "gold_sections": ["324"]}
+{"id": "q32", "type": "punishment", "question": "Is driving dangerously on a public road an offence even if nobody gets hurt?", "gold_sections": ["279"]}
+{"id": "q33", "type": "punishment", "question": "What is the punishment for buying goods when you know they were stolen?", "gold_sections": ["411"]}
+{"id": "q34", "type": "punishment", "question": "Can a person be punished for hiding a criminal from the police?", "gold_sections": ["212"]}
+{"id": "q35", "type": "procedural", "question": "If I cannot pay a fine imposed by the court, can I be sent to jail instead, and for how long?", "gold_sections": ["64", "65"]}
+{"id": "q36", "type": "procedural", "question": "Does Pakistani criminal law apply to a Pakistani citizen who commits a crime in another country?", "gold_sections": ["4"]}
+{"id": "q37", "type": "procedural", "question": "If several people commit a crime together as part of the same plan, is each of them responsible?", "gold_sections": ["34"]}
+{"id": "q38", "type": "procedural", "question": "What kinds of punishment can a court give under the penal code?", "gold_sections": ["53"]}
+{"id": "q39", "type": "punishment", "question": "Is it illegal to marry someone else while your first husband or wife is still alive?", "gold_sections": ["494"]}
+{"id": "q40", "type": "procedural", "question": "Can the victim's family forgive a murderer so that he is not executed?", "gold_sections": ["309", "310"]}
