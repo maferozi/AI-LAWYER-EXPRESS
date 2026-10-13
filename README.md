@@ -185,3 +185,7 @@ npm run dev
 ## License
 
 No license specified.
+
+## Author
+
+Built by [Muhammad Asad Ferozi](https://github.com/maferozi) as a personal project. The early commits in this repository were made from a machine configured with another git identity, so they show a different author name.
